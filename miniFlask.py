@@ -1,5 +1,10 @@
-from flask import Flask, redirect, url_for, request
+from flask import Flask, redirect, url_for, request, render_template
 app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+	return render_template('login.html')
 
 
 @app.route('/moi')
@@ -15,6 +20,7 @@ def hello_world(nom):
 @app.route('/python')
 def Python_test():
 	return 'Hello  python'
+
 
 """@app.route('/hello/<name>')
 def hello():
@@ -32,6 +38,9 @@ def login():
 	else:
 		user = request.args.get('nom')
 		return redirect(url_for('hello_world', nom = user))
+
+
+
 
 
 
